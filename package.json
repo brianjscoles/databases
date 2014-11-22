@@ -12,7 +12,8 @@
     "morgan": "^1.4.1",
     "mysql": "^2.5.3",
     "nodemon": "^1.2.1",
-    "request": "^2.40.0"
+    "request": "^2.40.0",
+    "underscore": "^1.7.0"
   },
   "scripts": {
     "test": "node ./server/app.js & mocha server/spec/server-spec.js; RES=$?; kill %1; exit $RES"

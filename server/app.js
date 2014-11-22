@@ -23,7 +23,7 @@ app.use("/classes", router);
 
 // Serve the client files
 var staticPath = path.resolve(__dirname, "../client");
-console.log(staticPath);
+
 app.use(express.static(staticPath));
 
 // If we are being run directly, run the server.

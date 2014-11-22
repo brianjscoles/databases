@@ -5,7 +5,7 @@ $(function() {
   app = {
 //TODO: The current 'addFriend' function just adds the class 'friend'
 //to all messages sent by the user
-    server: 'https://api.parse.com/1/classes/chatterbox/',
+    server: '/classes/messages/',
     username: 'anonymous',
     roomname: 'lobby',
     lastMessageId: 0,
@@ -13,7 +13,7 @@ $(function() {
 
     init: function() {
       // Get username
-      app.username = window.location.search.substr(10);
+      // app.username = window.location.search.substr(10);
 
       // Cache jQuery selectors
       app.$main = $('#main');
@@ -212,7 +212,7 @@ $(function() {
       var message = {
         username: app.username,
         text: app.$message.val(),
-        roomname: app.roomname || 'lobby'
+        roomname: 'HR' || app.roomname || 'lobby'
       };
 
       app.send(message);

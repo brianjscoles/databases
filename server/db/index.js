@@ -1,4 +1,5 @@
 var mysql = require('mysql');
+var _ = require('underscore');
 
 var chatsDb = mysql.createConnection({
   host     : 'localhost',
@@ -11,6 +12,8 @@ var chatsDb = mysql.createConnection({
 // and to the database "chat".
 
 chatsDb.connect();
+var postTemplate = _.template("INSERT into messages (username, roomname, text) values ('<%- username %>', '<%- roomname %>', '<%- text %>');")
+
 
 var allMessagesQuery = "select * from messages";
 
@@ -22,3 +25,20 @@ exports.getMessages = function (callback, filter) {
     callback ? callback(messages) : console.log('callback missing', messages);
   });
 };
+
+exports.postMessage = function (message, callback) {
+  var queryString = postTemplate(message);
+  chatsDb.query(queryString, function(err, response){
+    if (err){
+      throw err;
+    }
+    console.log(response);
+    callback ? callback() : console.log("POST callback missing");
+  });
+
+}
+
+
+
+// INSERT into messages (username, roomname, text)
+// values ('brian', 'lobby', 'hello again');

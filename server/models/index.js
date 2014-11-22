@@ -9,7 +9,9 @@ module.exports = {
     get: function (callback) {
       db.getMessages(callback);
     },
-    post: function () {} // a function which can be used to insert a message into the database
+    post: function (message,callback) {
+      db.postMessage(message,callback);
+    } // a function which can be used to insert a message into the database
   },
 
   users: {

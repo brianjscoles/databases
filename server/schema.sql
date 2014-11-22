@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS chat;
+
 CREATE DATABASE chat;
 
 USE chat;
@@ -5,11 +7,11 @@ USE chat;
 DROP TABLE IF EXISTS messages;
 
 CREATE TABLE messages (
-  ObjectId int NOT NULL AUTO_INCREMENT,
-  Author varchar(30) NOT NULL,
-  CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  Room varchar(30) NOT NULL,
-  Text varchar(140) NOT NULL,
+  objectId int NOT NULL AUTO_INCREMENT,
+  username varchar(30) NOT NULL,
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  roomname varchar(30) NOT NULL,
+  text varchar(140) NOT NULL,
   PRIMARY KEY (ObjectID)
 );
 
